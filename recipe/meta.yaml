@@ -1,6 +1,6 @@
 {% set name = "calamari_ocr" %}
-{% set version = "0.1.5" %}
-{% set sha256 = "82b2eee7d9dccc42e8a090e405d8a66bd706bd2db0083c9a344f7068f9fb6e8c" %}
+{% set version = "0.1.7" %}
+{% set sha256 = "16b93c295aafb674b063fb7f74cb7229586df07d6e357080495c1be22cebb1f0" %}
 
 package:
   name: '{{ name|lower }}'
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - calamari-eval=calamari_ocr.scripts.eval:main
