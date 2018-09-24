@@ -34,6 +34,8 @@ requirements:
     - scikit-image
     - python-bidi
     - edit_distance
+    - xlsxwriter
+    - lxml
 
 test:
   imports:
