@@ -1,6 +1,6 @@
 {% set name = "calamari_ocr" %}
-{% set version = "0.1.8" %}
-{% set sha256 = "12a708c31c22bf1dc13d476700c1fa7d8e9ef239bda8c9e24b892cd15e067b73" %}
+{% set version = "0.2.3" %}
+{% set sha256 = "4f9137519ee99935d9d70a2f82abd7892e8f8b33a2e0c27bd05df0ed6b0fb5b1" %}
 
 package:
   name: '{{ name|lower }}'
