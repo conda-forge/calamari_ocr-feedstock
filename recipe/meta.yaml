@@ -1,10 +1,10 @@
 {% set name = "calamari_ocr" %}
-{% set version = "0.1.8" %}
-{% set sha256 = "12a708c31c22bf1dc13d476700c1fa7d8e9ef239bda8c9e24b892cd15e067b73" %}
+{% set version = "2.1.4" %}
+{% set sha256 = "04a78dce69aa58b4dbc5ee9e8de52d3564c249c46c1e779f15a2810be9496ae0" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
@@ -20,7 +20,7 @@ build:
     - calamari-train=calamari_ocr.scripts.train:main
     - calamari-cross-fold-train=calamari_ocr.scripts.cross_fold_train:main
     - calamari-pred_to_json=calamari_ocr.scripts.cross_fold_train:main
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -64,15 +64,15 @@ about:
   home: https://github.com/ChWick/calamari
   license: GPL-3.0
   license_family: GPL3
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: OCR Engine based on OCRopy and Kraken based on python3. 
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: OCR Engine based on OCRopy and Kraken based on python3.
   description: |
     OCR Engine based on OCRopy and Kraken based on python3. It is designed 
     to both be easy to use from the command line but also be modular to 
     be integrated and customized from other python scripts.
-  doc_url:  https://github.com/ChWick/calamari
+  doc_url: https://github.com/ChWick/calamari
   dev_url: https://github.com/ChWick/calamari
 
 extra:
-  recipe-maintainers: 
+  recipe-maintainers:
     - CurtLH
