@@ -7,11 +7,11 @@ package:
   version: '{{ version }}'
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - calamari-eval=calamari_ocr.scripts.eval:main
@@ -20,14 +20,14 @@ build:
     - calamari-train=calamari_ocr.scripts.train:main
     - calamari-cross-fold-train=calamari_ocr.scripts.cross_fold_train:main
     - calamari-pred_to_json=calamari_ocr.scripts.cross_fold_train:main
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - tensorflow
     - numpy
     - tqdm
@@ -36,6 +36,8 @@ requirements:
     - edit_distance
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - calamari_ocr
     - calamari_ocr.ocr
